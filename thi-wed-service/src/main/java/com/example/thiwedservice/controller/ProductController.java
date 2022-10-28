@@ -26,12 +26,12 @@ public class ProductController {
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
-    public ResponseEntity findById(@PathVariable(name = "id") Long id) {
+    public ResponseEntity findById(@PathVariable(name = "id") int id) {
         return new ResponseEntity(productService.findById(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.POST)
-    public ResponseEntity sellProduct(@PathVariable(name = "id") Long id, @RequestParam Integer quantity) {
+    public ResponseEntity sellProduct(@PathVariable(name = "id") int id, @RequestParam Integer quantity) {
         return new ResponseEntity(productService.sellProduct(id, quantity), HttpStatus.OK);
     }
 

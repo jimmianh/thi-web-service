@@ -19,12 +19,18 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
+    public Optional<Product> findById(int id) {
+        return productRepository.findById(id);
+    }
+
+
+    @Override
     public List<Product> findAll() {
         return productRepository.findAll();
     }
 
     @Override
-    public Product sellProduct(Long id, Integer quantity) {
+    public Product sellProduct(int id, Integer quantity) {
         Optional<Product> existProduct = productRepository.findById(id);
         if (!existProduct.isPresent()){
             throw new RuntimeException("Product not found!");
